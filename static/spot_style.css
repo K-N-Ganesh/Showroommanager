@@ -33,7 +33,7 @@ body::-webkit-scrollbar-thumb {
 .content {
   height: 100%;
   width: 100%;
-  max-width: 500px;
+  max-width: 730px;
   text-align: center;
   display: flex;
   margin: 3vh auto; /* Centering the content horizontally */
@@ -68,25 +68,31 @@ body::-webkit-scrollbar-thumb {
 }
 
 .button-container {
-  margin: 3vw;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 10px;
 }
 
-.button-container button {
-  width: 13vw;
-  border-radius: 15px;
-  padding: 1vw 2vw;
-  font-size: 2vw;
-  cursor: pointer;
-  background-color: #06567b;
-  color: white;
-  border: none;
-  transition: 0.5s ease;
-  
-}
+.button-container button  {
+      background: transparent;
+      margin: 10px;
+      margin-bottom: 50px;
+      width: 160px;
+      height: 50px;
+      border-radius: 10px;
+      color: floralwhite;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      border: 3px solid #ecd018;
 
+}
+.button-container button:hover{
+  border:3px solid #fff;
+  background:transparent;
+  color:#ecd018;
+
+}
 .button-container button:hover {
   background-color: rgb(51, 115, 225);
 }
