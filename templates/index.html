@@ -31,13 +31,17 @@
             </nav>
           </div>
           <div class="main">
+            
             <div class="left-main">
               <div class="controls">
                 <div class="add-event"><i class="fa-regular fa-calendar-check add-icon" style="color: #ffffff;"></i>New Appointment</div>
                 <div class="time-container" id="time"></div>
 
               </div>
+            
+                  
             <div class="rd-container">
+              
               <div class="rd-date"><div class="rd-month">
                 <i class="fa-solid fa-arrow-left rd-back" id="prevMonth"  style="color: #fff;"></i>
                  <i class="fa-solid fa-arrow-rigth rd-next" id="nextMonth"  style="color: #fff;"></i>
@@ -77,10 +81,10 @@
               </div>
           </div>
           </div>
-        </div>
+            </div>
           <div class="ev-container " id="ev-contents">
            </div>
-        </div>
+        
     <div class="option">
       <div class="edit" onclick="edit_handler(this.parentElement.id,event)">
         <i class="fas fa-edit"></i>Edit
@@ -123,8 +127,7 @@
           <option value="" disabled selected>Select an option</option>
           <option value="option1">AMG</option>
           <option value="option2">EQ</option>
-          <option value="option3">Mercedes-Benz</option>
-          <option value="option4">MAYBACH</option>
+         
 
         </select>
         </div>
@@ -132,13 +135,13 @@
           <div class="event-info-2">
         <!-- Select Model Dropdown -->
         <div class="add-event-row">
-        <label for="model">Select Model:</label>
+        <label for="model">Model:</label>
         <select id="model" name="model" class="add-con">
           <option value="" disabled selected>Select an option</option>
             <option value="a-class">A Class</option>
             <option value="c-class">C Class</option>
-            <option value="e-class">E Class</option>
-          <option value="s-class">S Class</option>
+            <option value="e-class">EQ1</option>
+          <option value="s-class">EQ2</option>
 
           </select>
         </select>
@@ -148,20 +151,20 @@
         <label for="expert">Product Expert:</label>
         <select id="expert" name="expert" class="add-con">
           <option value="" disabled selected>Select an option</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">Product Expert 1</option>
+            <option value="option2">Product Expert 2</option>
+            <option value="option3">Product Expert 3</option>
           </select>
         </select>
         </div>
         <!-- Select Room Dropdown -->
         <div class="add-event-row">
-        <label for="room">Select Room:</label>
+        <label for="room">Delivery Area:</label>
         <select id="room" name="room" class="add-con">
           <option value="" disabled selected>Select an option</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">Area 1</option>
+            <option value="option2">Area 2</option>
+            <option value="option3">Area 3</option>
           </select>
         </select>
         </div>

@@ -7,6 +7,7 @@ const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 val=1;
 micon=document.getElementById("mic");
+
 mic.addEventListener("click", () => {
   if(val==1){
     val=2;
@@ -36,9 +37,29 @@ const resultEventListener = e => {
 };
 
 const endEventListener = async e => {
+  
 if(!transcript==""){
-
-  connect_todialogflow(transcript);
+  if (transcript.includes("hey spot")) {
+    transcript=transcript.replace("hey spot","");
+    if(transcript==""){
+    connect_todialogflow("hey spot");
+    }
+    else{
+      connect_todialogflow(transcript);
+    }
+  }
+    else if (transcript.includes("spot")) {
+        transcript=transcript.replace("spot","");
+        if(transcript==""){
+        connect_todialogflow("hey spot");
+        }
+        else{
+          connect_todialogflow(transcript);
+        }
+    }
+  else{
+    recognition.start();
+  }
 }
 else{
   recognition.start();
@@ -72,7 +93,7 @@ async function connect_todialogflow(request) {
           return response.json()
               .then(data => {
                   console.log(data);
-                   if(data.intent_name=="Default Fallback Intent" || data.intent_name=="Welcome Intent" || data.intent_name=="knowaboutpage"){
+                   if(data.intent_name=="Default Fallback Intent" || data.intent_name=="Welcome Intent" || data.intent_name=="knowaboutpage" || data.intent_name=="hey-spot" ){
                      speakText(data.fullfilment_text);
                    }
                   else if(data.intent_name=="date-picker"){
@@ -89,7 +110,7 @@ async function connect_todialogflow(request) {
                   document.querySelector(".add-event-form").style.display ="none";
                   document.querySelector("body").style.overflow="auto";
                 }
-                
+                recognition.start();
               });
     })
     .catch(error => {
