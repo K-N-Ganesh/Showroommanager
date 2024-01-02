@@ -15,8 +15,14 @@
         <div class="par">Pixcom Showroom</div>
         <div class="button-container">
           <div class="bnt-con">
-            <button>Start Session</button>
-            <button>Key Up</button></div>
+            <button>Start</button>
+          <button onclick="playPause()">
+            <video id="myVideo" >
+              <source src="/static/keyreveal.mp4" type="video/mp4">
+              Key Reveal
+            </video>
+          </button>
+          </div>
           <div class="bnt-con">
             <button>Start Show</button>
             <button>End Show</button>
@@ -24,5 +30,13 @@
         </div>
 
     </div>
+  <div class="mic" >
+  <i class="fa-solid fa-microphone " id="mic-on" style="color: #ffffff;font-size: 5vh; display:none"></i>
+    <i class="fas fa-microphone-slash" id="mic-off" style="color: #ffffff; font-size: 5vh;"></i>
+
+  </div>
+  <script src="https://kit.fontawesome.com/7f52b01bbe.js" crossorigin="anonymous"></script> 
+  <script src="/static/spot_script.js"></script> 
+        
 </body>
 </html>

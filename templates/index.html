@@ -19,9 +19,27 @@
                 <li class="nav-li home" ><a href="#"  class="active" >Home</a>
                     
                 </li>
-                <li class="nav-li"><a href="#"  class="active1">Delivery</a></li>
-                   <li class="nav-li" ><a href="#"  class="active2">Master</a></li>
-                   <li class="nav-li" ><a href="#"  class="active2">Report</a></li>
+                <li class="nav-li"><a href="#"  class="active1">Delivery</a>
+                  <ul class="dropdown">
+                    <li><a href="#">Create Delivery Appointment</a></li>
+                    <li><a href="#">View Delivery Appointment</a></li>
+                  <li><a href="#">Set Key Stand</a></li>
+
+                  </ul>
+                </li>
+                   <li class="nav-li" ><a href="#"  class="active2">Master</a>
+                     <ul class="dropdown">
+                       <li><a href="#">Brand Master</a></li>
+                       <li><a href="#">Model Master</a></li>
+                     <li><a href="#">Product Expert</a></li>
+                        <li><a href="#">Pixcom Master</a></li>
+
+                     </ul>
+                   </li>
+                   <li class="nav-li" ><a href="#"  class="active2">Report</a>
+                     <ul class="dropdown">
+                        <li><a href="#">Delivery Report</a></li>
+                   </li>
                 </div>
                 <div>
                 <li class="nav-li"><a href="#"  class="active3" style="height:100px;width:90px; padding:8px 13px"><i class="fa-solid fa-user-tie fa-xl" style="color: #f9fafa;"></i></a></li>
@@ -95,7 +113,7 @@
     </div>
 
     <div class="add-event-form">
-    <form  action="" method="">
+    <form  action="" method="" id="new-app">
       <div class="add-event-container">
         <div class="close-btn" onclick="close_handler()">
           <i class="fa-solid fa-xmark fa-2xl" style="color: #f7f7f7;"></i>
@@ -172,14 +190,16 @@
         </div>
         <!-- Save Button -->
         <div class="add-event-row button-div">
-        <button class="save-btn" type="submit">Save</button>
+        <button class="save-btn" id="app-save" type="submit">Save</button>
           </div>
       </div>
     </form>
 
     </div>
     <div class="mic" >
-    <i class="fa-solid fa-microphone " id="mic" style="color: #ffffff;font-size: 5vh;"></i>
+    <i class="fa-solid fa-microphone " id="mic-on" style="color: #ffffff;font-size: 5vh; display:none"></i>
+      <i class="fas fa-microphone-slash" id="mic-off" style="color: #ffffff; font-size: 5vh;"></i>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

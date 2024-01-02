@@ -1,21 +1,32 @@
 $(document).ready(function () {
 var transcript="";
+var form = document.getElementById('new-app');
+var  app_save= document.getElementById('app-save');
 var currentDate = new Date();
    cDate=currentDate.getDate();
 window.SpeechRecognition = window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 val=1;
-micon=document.getElementById("mic");
-
-mic.addEventListener("click", () => {
+micon=document.getElementById("mic-on");
+micoff=document.getElementById("mic-off");
+micon.addEventListener("click", () => {
+  recognition.removeEventListener('result', resultEventListener);
+  recognition.removeEventListener('end', endEventListener);
+  micon.style.display="none";
+  micoff.style.display="block"; 
+});
+micoff.addEventListener("click", () => {
+  micoff.style.display="none";
+  micon.style.display="block";
+  recognition.addEventListener('result', resultEventListener);
+  recognition.addEventListener('end', endEventListener);
+  
   if(val==1){
     val=2;
   connect_todialogflow("knowaboutpage");
   }
   else{
-    recognition.addEventListener('result', resultEventListener);
-    recognition.addEventListener('end', endEventListener);
     recognition.start();
   }
 
@@ -65,8 +76,7 @@ else{
   recognition.start();
 }
 };
-recognition.addEventListener('result', resultEventListener);
-recognition.addEventListener('end', endEventListener);
+
 
 async function connect_todialogflow(request) {
     console.log(request);
@@ -109,6 +119,9 @@ async function connect_todialogflow(request) {
                 else if(data.intent_name=="exit-app"){
                   document.querySelector(".add-event-form").style.display ="none";
                   document.querySelector("body").style.overflow="auto";
+                }
+                else if(data.intent_name="app-save"){
+                      app_save.click();
                 }
                 recognition.start();
               });
@@ -189,7 +202,7 @@ async function connect_todialogflow(request) {
     const requestData = {
       text: `${$('#yearSelector').val()}-${parseInt($('#monthSelector').val())+1}-${cDate}`
     };
-console.log("jhgcc",requestData);
+
     const url = '/get_records';
 
     // Make a POST request to Flask
@@ -258,5 +271,23 @@ console.log("jhgcc",requestData);
         $('#monthSelector').on('change', function () {
             buildCalendar(parseInt($('#monthSelector').val()), $('#yearSelector').val());
         });
+  app_save.addEventListener('click', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
 
+    // Check if all required fields are filled
+    if (form.checkValidity()) {
+      // If all fields are filled, submit the form
+        form.submit();
+      console.log("Form submitted");
+    } else {
+      // If not all fields are filled, trigger the default button click behavior
+      console.log("Form not valid");
+          
+      speakText("Enter Valid data");
+      // If there's a button associated with the form, you can click it
+      // Alternatively, you might want to display an error message or highlight the unfilled fields.
+    }
+  });
     });
+

@@ -88,19 +88,19 @@ list-style: none;
 }
 
 .dropdown {
-  width: 200px;
-  height: 100px;
-  color: #fff;
-  display: none;
-  font-family: verdana;
-  margin-top: 18.399999px;
-  border-radius: 25px;
-  line-height: 200%;
-  border-top-right-radius: 0px;
-  font-weight: bold;
-  position: absolute;
-  transition: 1s;
-  border-top-left-radius: 0px;
+    width: 17rem;
+    color: #fff;
+    display: none;
+    margin-top: 1.05rem;
+    border-radius: 25px;
+    line-height: 200%;
+    border-top-right-radius: 0px;
+    font-weight: bold;
+    position: absolute;
+    border-top-left-radius: 0px;
+    background-color: #5656566b;
+    z-index: 10;
+    padding-bottom:1rem;
 }
 .add-icon{
   margin-right:1vw;
@@ -118,6 +118,9 @@ list-style: none;
 
 
 .nav-type li:hover .home-menu {
+    display: block;
+}
+.nav-type li:hover .dropdown {
     display: block;
 }
 
